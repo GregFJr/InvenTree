@@ -3,7 +3,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_DB_URI = process.env.MONGO_DB_URI;
 
 // GraphQL schema and resolvers
 const typeDefs = require('./schema/schema');
@@ -17,7 +17,7 @@ async function startServer() {
   apolloServer.applyMiddleware({ app });
 
   // Connect to MongoDB
-  mongoose.connect(process.env.MONGO_URI)
+  mongoose.connect(MONGO_DB_URI)
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => console.error('MongoDB connection error:', err));
 
