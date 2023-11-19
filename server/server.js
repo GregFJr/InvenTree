@@ -1,12 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
-require('dotenv').config();
 
-// Replace with your actual MongoDB URI
-const MONGO_URI = 'your-mongodb-uri';
+const MONGO_URI = process.env.MONGO_URI;
 
-// Define your GraphQL schema and resolvers
+// GraphQL schema and resolvers
 const typeDefs = require('./schema/schema');
 const resolvers = require('./resolvers/resolvers');
 
@@ -18,9 +17,10 @@ async function startServer() {
   apolloServer.applyMiddleware({ app });
 
   // Connect to MongoDB
-  mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error(err));
+  mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => console.error('MongoDB connection error:', err));
+
 
   const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
