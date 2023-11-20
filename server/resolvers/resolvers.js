@@ -25,9 +25,9 @@ const resolvers = {
     },
     Mutation: {
       // Add a new product
-      addProduct: async (_, { name, description, price, quantity }) => {
+      addProduct: async (_, { name, description, price, quantity, category }) => {
         try {
-          const newProduct = new Product({ name, description, price, quantity });
+          const newProduct = new Product({ name, description, price, quantity, category });
           const savedProduct = await newProduct.save();
           return savedProduct;
         } catch (error) {
@@ -36,11 +36,11 @@ const resolvers = {
         }
       },
       // Update an existing product
-      updateProduct: async (_, { id, name, description, price, quantity }) => {
+      updateProduct: async (_, { id, name, description, price, quantity, category }) => {
         try {
           const updatedProduct = await Product.findByIdAndUpdate(
             id,
-            { name, description, price, quantity },
+            { name, description, price, quantity, category },
             { new: true }
           );
           return updatedProduct;

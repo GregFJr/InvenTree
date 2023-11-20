@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 
 const ADD_PRODUCT = gql`
-  mutation AddProduct($name: String!, $description: String, $price: Float!, $quantity: Int!) {
-    addProduct(name: $name, description: $description, price: $price, quantity: $quantity) {
+  mutation AddProduct($name: String!, $description: String, $price: Float!, $quantity: Int!, $category: String) {
+    addProduct(name: $name, description: $description, price: $price, quantity: $quantity, category: $category) {
       id
       name
     }
@@ -32,12 +32,28 @@ function AddProductForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="name" type="text" value={formData.name} onChange={handleChange} placeholder="Name" />
-      <input name="description" type="text" value={formData.description} onChange={handleChange} placeholder="Description" />
-      <input name="price" type="number" value={formData.price} onChange={handleChange} placeholder="Price" />
-      <input name="quantity" type="number" value={formData.quantity} onChange={handleChange} placeholder="Quantity" />
-      <button type="submit">Add Product</button>
+    <form onSubmit={handleSubmit} className="container mt-5">
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label">Name</label>
+        <input name="name" type="text" className="form-control" id="name" value={formData.name} onChange={handleChange} placeholder="Name" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="description" className="form-label">Description</label>
+        <input name="description" type="text" className="form-control" id="description" value={formData.description} onChange={handleChange} placeholder="Description" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="price" className="form-label">Price</label>
+        <input name="price" type="number" className="form-control" id="price" value={formData.price} onChange={handleChange} placeholder="Price" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="quantity" className="form-label">Quantity</label>
+        <input name="quantity" type="number" className="form-control" id="quantity" value={formData.quantity} onChange={handleChange} placeholder="Quantity" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="category" className="form-label">Category</label>
+        <input name="category" type="text" className="form-control" id="category" value={formData.category} onChange={handleChange} placeholder="Category" />
+      </div>
+      <button type="submit" className="btn btn-primary">Add Product</button>
     </form>
   );
 }

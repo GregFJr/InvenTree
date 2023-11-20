@@ -7,6 +7,7 @@ const typeDefs = gql`
     description: String
     price: Float
     quantity: Int
+    category: String
   }
 
   type Query {
@@ -15,7 +16,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProduct(name: String!, description: String, price: Float, quantity: Int): Product
+    addProduct(name: String!, description: String, price: Float, quantity: Int, category: String): Product
     updateProduct(id: ID!, name: String, description: String, price: Float, quantity: Int): Product
     deleteProduct(id: ID!): Product
   }
