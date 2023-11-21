@@ -18,7 +18,7 @@
     transition: opacity 3s ease-out;
   }
   
-  h2 {
+  .splash-heading {
     font-size: 3em;
     font-family: 'Ultra', serif;
   }

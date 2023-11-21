@@ -51,7 +51,7 @@ const SplashScreen = () => {
     <div
       className={`splash-screen ${fadeProp}`}
       style={handleImageSizing()}> 
-      <div style={welcomeStyle}><h2>Welcome To</h2></div>
+      <div style={welcomeStyle}><h2 className='splash-heading'>Welcome To</h2></div>
       </div>
   );
 };
