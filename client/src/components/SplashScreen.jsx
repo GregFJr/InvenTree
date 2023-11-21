@@ -38,11 +38,21 @@ const SplashScreen = () => {
     transition: 'opacity 3s ease-in-out',
   };
 
+  const welcomeStyle = {
+    position: 'absolute',
+    top: '10%',
+    left: '12%',
+    transform: 'translate(-50%, -50%)',
+    animation: 'fadeIn 3s ease forwards',
+    zIndex: 10,
+  };
+
   return (
     <div
       className={`splash-screen ${fadeProp}`}
-      style={handleImageSizing()}
-    />
+      style={handleImageSizing()}> 
+      <div style={welcomeStyle}><h2>Welcome To</h2></div>
+      </div>
   );
 };
 

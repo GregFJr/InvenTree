@@ -8,3 +8,17 @@
     transition: opacity 3s ease-out;
   }
   
+  .fade-in {
+    opacity: 1;
+    transition: opacity 3s ease-in;
+  }
+  
+  .fade-out {
+    opacity: 0;
+    transition: opacity 3s ease-out;
+  }
+  
+  h2 {
+    font-size: 3em;
+    font-family: 'Ultra', serif;
+  }
