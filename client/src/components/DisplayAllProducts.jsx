@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import '../styles/DisplayAllProducts.css';
-import Navbar from './Navbar';
+import Navbar from './NavBar';
 
 const GET_PRODUCTS_BY_CATEGORY = gql`
   query {

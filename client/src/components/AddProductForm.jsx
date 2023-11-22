@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import '../styles/AddProductForm.css';
-import Navbar from './Navbar';
+import Navbar from './NavBar';
 
 
 const ADD_PRODUCT = gql`
