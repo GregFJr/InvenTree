@@ -6,3 +6,7 @@ form {
     border-radius: 25px;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  .btn {
+    background-color: #16812a;
+  }

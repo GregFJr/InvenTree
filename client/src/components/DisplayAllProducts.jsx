@@ -40,14 +40,14 @@ const ProductsByCategory = () => {
     <div>
       <Navbar />
       {Object.keys(productsByCategory).map((category) => (
-        <div key={category}>
-          <h2>{category}</h2>
+        <div className='cat-container' key={category}>
+          <h2 className='cat-heading'>{category}</h2>
           {productsByCategory[category].map((product) => (
             <div key={product.id}>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <p>Price: ${product.price}</p>
-              <p>Quantity: {product.quantity}</p>
+              <h3 className='prod-name'>{product.name}</h3>
+              <p className='prod-info'>{product.description}</p>
+              <p className='prod-info'>Price: ${product.price}</p>
+              <p className='prod-info'>Quantity: {product.quantity}</p>
             </div>
           ))}
         </div>
