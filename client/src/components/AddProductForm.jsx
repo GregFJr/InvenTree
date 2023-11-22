@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import '../styles/AddProductForm.css';
+import Navbar from './NavBar';
 
 
 const ADD_PRODUCT = gql`
@@ -30,10 +31,12 @@ function AddProductForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addProduct({ variables: { ...formData, price: parseFloat(formData.price), quantity: parseInt(formData.quantity) } });
-    setFormData({ name: '', description: '', price: '', quantity: '' }); 
+    setFormData({ name: '', description: '', price: '', quantity: '' });
   };
 
   return (
+    <div>
+    <Navbar />
     <form onSubmit={handleSubmit} className="container mt-5">
       <div className="mb-3">
         <label htmlFor="name" className="form-label">Name</label>
@@ -57,6 +60,7 @@ function AddProductForm() {
       </div>
       <button type="submit" className="btn btn-success">Add Product</button>
     </form>
+    </div>
   );
 }
 

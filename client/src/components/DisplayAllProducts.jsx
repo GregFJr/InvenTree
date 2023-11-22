@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import '../styles/DisplayAllProducts.css';
+import Navbar from './NavBar';
 
 const GET_PRODUCTS_BY_CATEGORY = gql`
   query {
@@ -37,6 +38,7 @@ const ProductsByCategory = () => {
 
   return (
     <div>
+      <Navbar />
       {Object.keys(productsByCategory).map((category) => (
         <div key={category}>
           <h2>{category}</h2>
