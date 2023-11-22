@@ -29,7 +29,7 @@ function AddProductForm() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     addProduct({ variables: { ...formData, price: parseFloat(formData.price), quantity: parseInt(formData.quantity) } });
     setFormData({ name: '', description: '', price: '', quantity: '' });
   };

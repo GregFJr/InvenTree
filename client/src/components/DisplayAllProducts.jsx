@@ -87,7 +87,7 @@ const ProductsByCategory = () => {
               <p className="prod-info">{product.description}</p>
               <p className="prod-info">Price: ${product.price}</p>
               <p className="prod-info">Quantity: {product.quantity}</p>
-              <button onClick={() => handleUpdate(product.id)} className="btn btn-primary btn-sm update">Update</button>
+              <button onClick={() => handleUpdate(product.id)} className="btn btn-secondary btn-sm update">Update</button>
               <button onClick={() => handleDelete(product.id)} className="btn btn-danger btn-sm delete">Delete</button>
             </div>
           ))}
