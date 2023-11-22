@@ -1,7 +1,11 @@
 .cat-container {
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 50vw;
+    width: 98vw;
+    margin-left: 1%;
+    margin-top: 2%;
+    border: 1px solid transparent;
+    border-radius: 25px;
 }
 
 .cat-heading {
@@ -9,23 +13,30 @@
     color: white;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
+    padding-left: 10px;
+    font-family: Arial, 'Times New Roman', Times, serif;
+    border-radius: 25px 5px;
+    /* text-align: center; */
 }
 
 .prod-name {
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.266);
     color: black;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
+    font-family: Arial, 'Times New Roman', Times, serif;
+    padding-left: 10px;
+    border-radius: 15px 1px;
+    /* text-align: center; */
 }
 
 .prod-info {
     background-color: white;
     color: black;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, 'Times New Roman', Times, serif;
     font-size: larger;
-    text-align: center;
+    padding-left: 10px;  
+    border-bottom: 1px dashed black;
+    width: 100%;
 
-   
+    /* text-align: center; */
+
 }
