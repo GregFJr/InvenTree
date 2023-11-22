@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
+import '../styles/AddProductForm.css';
+
 
 const ADD_PRODUCT = gql`
   mutation AddProduct($name: String!, $description: String, $price: Float!, $quantity: Int!, $category: String) {
@@ -53,7 +55,7 @@ function AddProductForm() {
         <label htmlFor="category" className="form-label">Category</label>
         <input name="category" type="text" className="form-control" id="category" value={formData.category} onChange={handleChange} placeholder="Category" />
       </div>
-      <button type="submit" className="btn btn-primary">Add Product</button>
+      <button type="submit" className="btn btn-success">Add Product</button>
     </form>
   );
 }
