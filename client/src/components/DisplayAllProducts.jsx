@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
+import { useNavigate } from 'react-router-dom'
 import '../styles/DisplayAllProducts.css';
 import Navbar from './NavBar';
 
@@ -29,6 +30,7 @@ const ProductsByCategory = () => {
   const { loading, error, data, refetch } = useQuery(GET_PRODUCTS_BY_CATEGORY);
   const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION);
   const [productsByCategory, setProductsByCategory] = useState({});
+  const navigate = useNavigate();
 
   // Effect to group products by category
   useEffect(() => {
@@ -60,10 +62,14 @@ const ProductsByCategory = () => {
           });
         },
       }).then(() => {
-        // Optionally refetch products after deletion for instant UI update
         refetch();
       });
     }
+  };
+
+  //Handles and redirects to UpdateProductForm
+  const handleUpdate = (productId) => {
+    navigate(`/update/${productId}`);
   };
 
   if (loading) return <p>Loading...</p>;
@@ -81,9 +87,8 @@ const ProductsByCategory = () => {
               <p className="prod-info">{product.description}</p>
               <p className="prod-info">Price: ${product.price}</p>
               <p className="prod-info">Quantity: {product.quantity}</p>
-              <button onClick={() => handleDelete(product.id)} className="btn btn-danger btn-sm">
-                Delete
-              </button>
+              <button onClick={() => handleUpdate(product.id)} className="btn btn-primary btn-sm update">Update</button>
+              <button onClick={() => handleDelete(product.id)} className="btn btn-danger btn-sm delete">Delete</button>
             </div>
           ))}
         </div>

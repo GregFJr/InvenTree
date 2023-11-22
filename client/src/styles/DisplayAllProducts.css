@@ -40,3 +40,13 @@
     /* text-align: center; */
 
 }
+
+.delete {
+    margin: 2px 2px 2px 10px;
+    border-radius: 15px;
+}
+
+.update {
+    margin: 2px 2px 2px 10px;
+    border-radius: 15px;
+}
