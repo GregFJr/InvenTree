@@ -1,9 +1,8 @@
-// UpdateProductForm.jsx
 import React, { useState, useEffect } from "react";
 import { useMutation, useQuery, gql } from "@apollo/client";
 import { useParams, useNavigate } from "react-router-dom";
 
-// Define the GraphQL query to fetch a single product by ID
+// GraphQL queries and mutations
 const GET_PRODUCT_QUERY = gql`
   query GetProduct($id: ID!) {
     product(id: $id) {
