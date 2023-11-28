@@ -21,7 +21,22 @@ function AddProductForm() {
     quantity: ''
   });
 
-  const [addProduct] = useMutation(ADD_PRODUCT);
+  const [message, setMessage] = useState('');
+
+  const showMessage = (msg, isError = false) => {
+    setMessage(msg);
+    setTimeout(() => setMessage(''), isError ? 5000 : 3000); 
+  }
+
+  const [addProduct] = useMutation(ADD_PRODUCT, {
+    onCompleted: () => {
+      showMessage('Product added successfully.');
+      setFormData({ name: '', description: '', price: '', quantity: '', category: '' }); 
+    },
+    onError: (error) => {
+      showMessage(`Error: ${error.message}`);
+    }
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +44,8 @@ function AddProductForm() {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+    setMessage('Product added successfully!');
     addProduct({ variables: { ...formData, price: parseFloat(formData.price), quantity: parseInt(formData.quantity) } });
     setFormData({ name: '', description: '', price: '', quantity: '' });
   };
@@ -59,6 +75,9 @@ function AddProductForm() {
         <input name="category" type="text" className="form-control" id="category" value={formData.category} onChange={handleChange} placeholder="Category" />
       </div>
       <button type="submit" className="btn btn-success">Add Product</button>
+      {message && <div className={`alert mt-4 ${message.startsWith('Error:') ? 'alert-danger' : 'alert-success'}`} role="alert">
+        {message}
+      </div>}
     </form>
     </div>
   );
