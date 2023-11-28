@@ -16,7 +16,6 @@ const GET_PRODUCT_QUERY = gql`
   }
 `;
 
-// Your provided GraphQL mutation
 const UPDATE_PRODUCT_MUTATION = gql`
   mutation UpdateProduct(
     $id: ID!
@@ -89,6 +88,8 @@ const UpdateProductForm = () => {
     e.preventDefault();
     const { __typename, ...updateData } = formData;
     updateData.price = parseFloat(updateData.price);
+    updateData.quantity = parseInt(updateData.quantity, 10);
+
 
     console.log("Submitting with data:", updateData);
 
