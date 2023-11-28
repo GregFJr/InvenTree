@@ -16,6 +16,8 @@ async function startServer() {
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
 
+  console.log('MongoDB URI: ', process.env.MONGO_DB_URI);
+
   // Connect to MongoDB
   mongoose.connect(MONGO_DB_URI)
 .then(() => console.log('MongoDB connected successfully'))
