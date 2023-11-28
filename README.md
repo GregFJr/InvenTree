@@ -56,3 +56,5 @@ This project is not licensed
 
 ## Deployed Site
 
+Follow The Link To [InvenTree](https://inventree-7b3215d17f11.herokuapp.com/)
+
